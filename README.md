@@ -535,7 +535,7 @@ The project can be deployed on AWS using:
 
 ### JenkinsPipeline
 
-![JenkinsPipeline](Jenkins Pipeline.png)
+![JenkinsPipeline](JenkinsPipeline.png)
 
 ---
 
