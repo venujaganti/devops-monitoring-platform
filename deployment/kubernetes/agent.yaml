@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-agent
+  namespace: monitoring
+
+  labels:
+    app: monitoring-agent
+    app.kubernetes.io/name: monitoring-agent
+    app.kubernetes.io/part-of: devops-monitoring-platform
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: monitoring-agent
+
+  template:
+    metadata:
+      labels:
+        app: monitoring-agent
+
+    spec:
+      containers:
+        - name: monitoring-agent
+
+          image: localhost/devops-monitoring-agent:latest
+
+          imagePullPolicy: IfNotPresent
+
+          env:
+            - name: BACKEND_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: monitoring-config
+                  key: BACKEND_URL
+
+            - name: AGENT_INTERVAL
+              valueFrom:
+                configMapKeyRef:
+                  name: monitoring-config
+                  key: AGENT_INTERVAL
+
+            - name: REQUEST_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: monitoring-config
+                  key: REQUEST_TIMEOUT
+
+            - name: AGENT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: monitoring-secret
+                  key: AGENT_USERNAME
+
+            - name: AGENT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: monitoring-secret
+                  key: AGENT_PASSWORD
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+
+            limits:
+              cpu: "200m"
+              memory: "128Mi"

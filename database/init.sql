@@ -1,0 +1,2 @@
+-- PostgreSQL database creation is handled by the container/Kubernetes
+-- configuration using POSTGRES_DB. This file is intentionally empty.

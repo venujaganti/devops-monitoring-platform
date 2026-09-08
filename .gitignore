@@ -1,0 +1,69 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
+*.temp
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Jenkins
+jenkins_home/
+
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+node_modules/
+frontend/dist/
+
+*.log
+
+.vscode/
+.idea/
+
+.DS_Store
+# Local development database
+backend/*.db
